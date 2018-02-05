@@ -434,10 +434,10 @@ public class MainActivity extends AppCompatActivity {
             return fragmentMap.size();
         }
 
-        @Override
+       /* @Override
         public CharSequence getPageTitle(int position) {
             return titles[position];
-        }
+        }*/
 
 
     }

@@ -131,8 +131,8 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
 
                         if (mDatas != null) {
 
-                            int size = mDatas.size();
-                            PrefUtils.setString(getActivity(), "size", size + "");
+//                            int size = mDatas.size();
+//                            PrefUtils.setString(getActivity(), "size", size + "");
 
                             mAdapter = new MyAdapter(mDatas);
                             mRecyclerView.setAdapter(mAdapter);
