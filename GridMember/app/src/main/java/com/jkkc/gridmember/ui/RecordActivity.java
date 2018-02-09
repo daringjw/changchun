@@ -106,10 +106,13 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnStopRecord:
 
                 if (mAudioRecorder != null) {
-
                     mAudioRecorder.stop();
-
                 }
+
+                mBtnStopRecord.setVisibility(View.GONE);
+                mBtnPlay.setVisibility(View.VISIBLE);
+                mBtnStopPlay.setVisibility(View.VISIBLE);
+                mBtnSubmit.setVisibility(View.VISIBLE);
 
                 break;
 
@@ -195,5 +198,13 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+        if (mAudioPlayer != null) {
+            mAudioPlayer.stop();
+        }
+
+    }
 }

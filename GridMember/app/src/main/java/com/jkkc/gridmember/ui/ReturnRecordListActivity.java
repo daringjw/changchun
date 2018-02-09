@@ -29,6 +29,7 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -88,7 +89,6 @@ public class ReturnRecordListActivity extends AppCompatActivity {
                 .setSpinnerStyle(SpinnerStyle.Scale));
 
 
-
         OkGo.<String>post(Config.GRIDMAN_URL + Config.FIND_RETURN_VISIT_LIST)
                 .tag(this)
                 .params("token", mLoginInfo.getData().getToken())
@@ -103,6 +103,8 @@ public class ReturnRecordListActivity extends AppCompatActivity {
                         Gson gson1 = new Gson();
                         ReturnRecordInfo returnRecordInfo = gson1.fromJson(result, ReturnRecordInfo.class);
                         mReturnDatas = returnRecordInfo.getData();
+                        // 倒序
+                        Collections.reverse(mReturnDatas);
 
                         if (mReturnDatas != null) {
                             int size = mReturnDatas.size();

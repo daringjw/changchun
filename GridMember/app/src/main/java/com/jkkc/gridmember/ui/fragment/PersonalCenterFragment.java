@@ -25,6 +25,7 @@ import com.jkkc.gridmember.R;
 import com.jkkc.gridmember.bean.LoginInfo;
 import com.jkkc.gridmember.utils.PrefUtils;
 import com.tencent.bugly.Bugly;
+import com.tencent.bugly.beta.Beta;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -81,7 +82,8 @@ public class PersonalCenterFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-//                Toast.makeText(getActivity(),"检测升级",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"检测升级",Toast.LENGTH_SHORT).show();
+                Beta.checkUpgrade();
 
                 if (AppUtils.isAppDebug()) {
                     //内测版本

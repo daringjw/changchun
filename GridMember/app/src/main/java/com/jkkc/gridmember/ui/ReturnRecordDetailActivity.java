@@ -26,6 +26,7 @@ import com.lzy.okgo.model.Response;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -66,6 +67,8 @@ public class ReturnRecordDetailActivity extends AppCompatActivity {
             Gson gson1 = new Gson();
             ReturnRecordInfo returnRecordInfo = gson1.fromJson(result, ReturnRecordInfo.class);
             mReturnDatas = returnRecordInfo.getData();
+            //倒序
+            Collections.reverse(mReturnDatas);
 
             String imgPath = mReturnDatas.get(detail_position).getImgPath();
             Log.d(TAG, imgPath);
