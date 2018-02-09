@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             //求助者 数据存sp
             PrefUtils.setString(getApplicationContext(), "caller_info", mMsg);
             //服务器推送了吗
-            PrefUtils.setBoolean(getApplicationContext(),"push",true);
+            PrefUtils.setBoolean(getApplicationContext(), "push", true);
 
             startActivity(new Intent(getApplicationContext(), TimingActivity.class));
 
@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
 //mLocationClient为第二步初始化过的LocationClient对象
 //调用LocationClient的start()方法，便可发起定位请求
 
-        //        通过注册消息监听来接收消息。
+        //通过注册消息监听来接收消息。
 
         EMClient.getInstance().chatManager().addMessageListener(msgListener);
 
@@ -321,9 +321,16 @@ public class MainActivity extends AppCompatActivity {
 //        tabLayout.addTab(tabLayout.newTab().setText("求助").setIcon(R.mipmap.ic_launcher));
 //        tabLayout.addTab(tabLayout.newTab().setText("个人中心").setIcon(R.mipmap.ic_launcher));
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.return_visit_selector);
-        tabLayout.getTabAt(1).setIcon(R.drawable.for_help_selector);
-        tabLayout.getTabAt(2).setIcon(R.drawable.personal_center_selector);
+//        tabLayout.getTabAt(0).setIcon(R.drawable.return_visit_selector);
+//        tabLayout.getTabAt(1).setIcon(R.drawable.for_help_selector);
+//        tabLayout.getTabAt(2).setIcon(R.drawable.personal_center_selector);
+
+        tabLayout.getTabAt(0).setCustomView(R.layout.sb0);
+        tabLayout.getTabAt(1).setCustomView(R.layout.sb1);
+        tabLayout.getTabAt(2).setCustomView(R.layout.sb2);
+
+        tabLayout.getTabAt(0).getCustomView().setSelected(true);
+
 
         //注册一个监听连接状态的listener
         if (mMyConnectionListener == null) {
