@@ -103,8 +103,10 @@ public class ReturnRecordListActivity extends AppCompatActivity {
                         Gson gson1 = new Gson();
                         ReturnRecordInfo returnRecordInfo = gson1.fromJson(result, ReturnRecordInfo.class);
                         mReturnDatas = returnRecordInfo.getData();
-                        // 倒序
-                        Collections.reverse(mReturnDatas);
+                        if (mReturnDatas!=null){
+                            // 倒序
+                            Collections.reverse(mReturnDatas);
+                        }
 
                         if (mReturnDatas != null) {
                             int size = mReturnDatas.size();
