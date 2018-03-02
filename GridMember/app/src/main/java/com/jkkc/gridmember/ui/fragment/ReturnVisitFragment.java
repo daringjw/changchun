@@ -109,6 +109,8 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
         refreshLayout.setRefreshFooter(new BallPulseFooter(getActivity())
                 .setSpinnerStyle(SpinnerStyle.Scale));
 
+        Log.d(TAG, "token=" + mLoginInfo.getData().getToken());
+        Log.d(TAG, "gridMemberId=" + mLoginInfo.getData().getId());
 
         //回访列表
         OkGo.<String>post(Config.GRIDMAN_URL + Config.RETURN_VISIT_URL)
@@ -124,7 +126,7 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
                         Gson gson1 = new Gson();
                         ReturnVisitList returnVisitList = gson1.fromJson(result, ReturnVisitList.class);
                         String data = returnVisitList.getData();
-                        Log.d(TAG, data);
+//                        Log.d(TAG, data);
 
                         Gson gson2 = new Gson();
                         mDatas = gson2.fromJson(data, new TypeToken<List<ReturnVisitListData>>() {
