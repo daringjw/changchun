@@ -12,6 +12,8 @@ public class ReturnVisitListData {
      * jibing : null
      * name : 徐浩
      * phone : 13943187200
+     * canVisit :  0/1   0 不可以访问   1 可以访问
+     *
      */
 
     private String address;
@@ -20,6 +22,8 @@ public class ReturnVisitListData {
     private String phone;
     public String day;
     public String oldId;
+
+    public String canVisit;
 
     public String getAddress() {
         return address;

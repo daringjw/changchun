@@ -109,6 +109,10 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
         refreshLayout.setRefreshFooter(new BallPulseFooter(getActivity())
                 .setSpinnerStyle(SpinnerStyle.Scale));
 
+        Log.d(TAG, "token==" + mLoginInfo.getData().getToken());
+        Log.d(TAG, "gridMemberId==" + mLoginInfo.getData().getId());
+
+
         //回访列表
         OkGo.<String>post(Config.GRIDMAN_URL + Config.RETURN_VISIT_URL)
                 .tag(this)
@@ -129,6 +133,8 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
                         mDatas = gson2.fromJson(data, new TypeToken<List<ReturnVisitListData>>() {
                         }.getType());
 
+//                        String canVisit = mDatas.get(0).canVisit;
+
                         if (mDatas != null) {
 
 //                            int size = mDatas.size();
@@ -145,9 +151,12 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
 
                                 }
                             });
+
+
                         }
 
                     }
+
 
                 });
 
@@ -264,8 +273,8 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 //            viewHolder.mTextView.setText(datas.get(position));
-            viewHolder.tvName.setText("姓名："+datas.get(position).getName());
-            viewHolder.tvHomeAddress.setText("地址："+datas.get(position).getAddress());
+            viewHolder.tvName.setText("姓名：" + datas.get(position).getName());
+            viewHolder.tvHomeAddress.setText("地址：" + datas.get(position).getAddress());
             String day = datas.get(position).day;
             if (TextUtils.isEmpty(day)) {
                 viewHolder.tvDay.setText("状态：还未回访");
@@ -316,11 +325,6 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
                                     } else {
                                         Toast.makeText(getActivity(), "请安装百度地图", Toast.LENGTH_SHORT).show();
                                     }
-
-
-
-
-
 
 
                                 }

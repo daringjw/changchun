@@ -150,6 +150,7 @@ public class LoginActivity extends AppCompatActivity {
         public void onConnected() {
 
             Log.d(TAG, "login已连接上");
+
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
 
