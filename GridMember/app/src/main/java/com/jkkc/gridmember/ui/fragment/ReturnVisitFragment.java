@@ -109,9 +109,6 @@ public class ReturnVisitFragment extends Fragment implements DatePickerDialog.On
         refreshLayout.setRefreshFooter(new BallPulseFooter(getActivity())
                 .setSpinnerStyle(SpinnerStyle.Scale));
 
-        Log.d(TAG, "token==" + mLoginInfo.getData().getToken());
-        Log.d(TAG, "gridMemberId==" + mLoginInfo.getData().getId());
-
 
         //回访列表
         OkGo.<String>post(Config.GRIDMAN_URL + Config.RETURN_VISIT_URL)
